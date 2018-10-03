@@ -7,3 +7,10 @@ Airport.prototype.landPlane = function (plane) {
   }
   this.landedPlanes.push(plane);
 }
+Airport.prototype.takeOff = function (plane) {
+  if (this.landedPlanes.includes(plane)) {
+    this.landedPlanes = this.landedPlanes.filter(item => item !== plane)
+  } else {
+    throw new Error('That plane is not in the airport')
+  }
+};
